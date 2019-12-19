@@ -1,0 +1,167 @@
+<div id="modalautenticante" class="modal">
+  <div class="modal-content">
+    <span class="close text-center">&times;</span>
+    <h1>
+      <p>Confirmar cambios</p>
+    </h1>
+    <p>
+      <button class="btn-danger btn-lg cerrarmodal" id="cerrar">Cancelar</button>
+      <button class="btn-success btn-lg cerrarmodal" id="cerraryactualizar">Cerrar y Actualizar</button>
+
+    </p>
+  </div>
+</div>
+
+<div id="modal-espere" class="modal">
+  <div class="modal-content">
+    <span class="close text-center">&times;</span>
+    <h1>
+      <p>Realizando cambios</p>
+    </h1>
+    <p>
+    </p>
+  </div>
+</div>
+
+
+<div style="text-align:center;background: gray; font-family: arial;">
+  <h1 style="color: white; font-weight: bold;">
+    Bienvenida a la {{ title }}
+  </h1>
+</div>
+
+<div class="everything " style="font-family: arial;">
+  <div class="table-responsive">
+  <table id="editorial" class="table-bordered table-light table-striped border-info col-md-12 table-sm">
+    <thead class="thead-dark">
+      <tr class=" border-info col-md-12 table-active" style="border: 3px solid;text-align: center;">
+        <th class="border-info" style="border: 3px solid;"> Sustancia </th>
+        <th class="border-info" style="border: 3px solid;"> Cantidad (Kg/Lt) </th>
+        <th class="border-info" style="border: 3px solid;"> Cantidad Total comprada (Kg/Lt) </th>
+        <th class="border-info" style="border: 3px solid;"> Existencia al dia {{ciclo_inicio}}/{{anio}}
+        </th>
+        <th class="border-info" style="border: 3px solid;"> Cantidad usada (Kg/Lt) </th>
+        <th class="border-info" style="border: 3px solid;"> Existencia al dia {{ciclo_fin}}/{{anio}}</th>
+        <th class="border-info" style="border: 3px solid;"> Fecha de compra </th>
+        <th class="border-info" style="border: 3px solid;"> Tipo de documento F/T o R (2) - N° de documento </th>
+        <th class="border-info" style="border: 3px solid;"> Numero de Sedronar proveedor </th>
+        <th class="border-info" style="border: 3px solid;"> Operaciones </th>
+      </tr>
+    </thead>
+    <tbody id="editorial">
+
+      <tr *ngFor="let ele of elemento;" id="editorial">
+        <td class="border text-nowrap">
+          {{ele.sustancia}} ({{ele.medicion}})
+          <input hidden id="id_sustancia{{ele.id_sustancia}}" class="id_sustancia" [(ngModel)]="ele.id_sustancia">
+        </td>
+        <td class="border" style="text-align: center;">
+          {{ele.cantidad}} ({{ele.medicion}})
+        </td>
+        <td class="border">
+          <div class="input-group input-group-sm mb-3 nomorpad">
+          <input type="number" id="comprado{{ele.id_sustancia}}" class="comprado form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+            placeholder=" Comprado: {{ele.cantidad_comprada}} ({{ele.medicion}})">
+          </div>
+        </td>
+        <td class="border" style="text-align: center;">
+          {{ele.suma_existencial}} ({{ele.medicion}})
+        </td>
+        <td class="border">
+          <div class="input-group input-group-sm mb-3 nomorpad">
+          <input type="number" id="usado{{ele.id_sustancia}}" class="usado form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+            placeholder="Usado: {{ele.usado_al_final_del_ciclo}} ({{ele.medicion}})">
+          </div>
+        </td>
+        <td class="border" style="text-align: center;">
+          {{ele.existencia_al_final_ciclo}} ({{ele.medicion}})
+        </td>
+        <td class="border">
+          <div class="input-group input-group-sm mb-3 nomorpad">
+          <input type="date" id="fecha_de_compra{{ele.id_sustancia}}" class="fecha form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+            placeholder="{{ele.fecha_de_compra}}">
+          </div>
+        </td>
+        <td class="border">
+          <div class="input-group input-group-sm mb-3 nomorpad">
+          <input type="text" id="tipo_documento{{ele.id_sustancia}}" class="tipo_documento form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+            placeholder="{{ele.tipo_documento}}">
+          </div>
+        </td>
+        <td class="border">
+          <div class="input-group input-group-sm mb-3 nomorpad">
+            <input type="text" id="numero_sedronar{{ele.id_sustancia}}" class="sedronar form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"
+            placeholder="{{ele.numero_de_proveedor_sedronar}}">
+          </div>
+         
+        </td>
+        <td class="border text-center">
+          <button class="alert-success singlealta" value="{{id_sustancia}}" id=" {{id_sustancia}} ">
+            <img src="https://image.flaticon.com/icons/png/512/12/12196.png" height="12px" width="12px">
+          </button>
+          <button id="borrardato" (click)="baja(ele.id_sustancia)" class="alert-danger">
+            <img src="https://image.flaticon.com/icons/png/512/121/121113.png" height="12px" width="12px">
+          </button>
+        </td>
+      </tr>
+    </tbody>
+    <!-- <app-editor></app-editor> 
+    
+    // "node_modules/bootstrap/dist/css/bootstrap.min.css", angular.json-->
+  </table>
+</div>
+      <button (click)="recuperarTodo()" id="actualizar" style="display:none;"></button>
+    <button class="boton_relativo" (click)='abrir_botones()' style="background: rgba(0, 0, 0, 0.7);"><img id="img_actualizar"
+      src="../../assets/img/mas.png"></button> 
+    <div [hidden]="tra">
+      <div class="divrelativo" >
+      <button (click)="fin_ciclo()" id="ciclo" class="boton_relativo5 btn-danger">Fin Ciclo</button>
+      
+      <button routerLink="/imprimir" routerLinkActive="active" class="boton_relativo2"><img id="img_actualizar"
+        src="../../assets/img/imprimir.png"></button>
+      <button (click)="recuperarTodo()" id="actualizar" class="boton_relativo4"><img id="img_actualizar"
+          src="../../assets/img/actualizar.png"></button>
+          <button id="modificacion" class="boton_relativo3" (click)="modalshow()"><img id="img_actualizar1"src="../../assets/img/editar.png"></button>
+      </div>
+   </div> 
+
+
+
+  <h1 style="padding-top:4vh;">Agregar un nuevo elemento</h1>
+  <div class="table-responsive"> 
+  <table class="w-100 table-dark">
+    <tr>
+      <th>Nombre de la sustancia</th>
+      <th>Medicion de la sustancia</th>
+      <th>Compra inicial de la sustancia</th>
+      <th>Uso de la sustancia (si hay)</th>
+      <th>Fecha de compra</th>
+      <th>Tiquet/factura/documento</th>
+      <th>Numero sedronar</th>
+    </tr>
+    <tr>
+      <td class="tabla-de-7"><input type="text" placeholder="Nueva sustancia" id="Agregar_Sustancia"
+          class="input-de-tabla w-100 border form-control" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="ele.sustancia"> </td>
+      <td class="tabla-de-7"><input type="text" placeholder="kg - L -Etc" id="Declarar_peso"
+          class="input-de-tabla w-100 border form-control" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="ele.medicion"> </td>
+      <td class="tabla-de-7"><input type="number" placeholder=" Cuanto se compro" id="Agregar_Compra"
+          class="input-de-tabla w-100 border form-control"  aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="ele.cantidad_comprada"> </td>
+      <td class="tabla-de-7"><input type="number" placeholder="Cuanto se uso" id="Agregar_Uso"
+          class="input-de-tabla w-100 border form-control" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="ele.usado_al_final_del_ciclo"> </td>
+      <td class="tabla-de-7"><input type="date" placeholder="Agregue fecha" id="Agregar_Fecha_compra"
+          class="input-de-tabla w-100 border form-control"  aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="ele.fecha_de_compra"> </td>
+      <td class="tabla-de-7"><input type="text" placeholder="Tipo documento" id="Agregar_Documento"
+          class="input-de-tabla w-100 border form-control" aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="ele.tipo_documento"> </td>
+      <td class="tabla-de-7"><input type="text" placeholder="Numero sedronar proveedor" id="Agregar_Proveedor"
+          class="input-de-tabla w-100 border form-control"  aria-label="Username" aria-describedby="basic-addon1" [(ngModel)]="ele.numero_de_proveedor_sedronar"> </td>
+    </tr>
+  </table>
+</div>
+  <button class="btn-success" (click)="alta()">Agregar nuevo elemento </button>
+</div>
+<h2></h2>
+<ul>
+</ul>
+<!-- <div class="input-group input-group-sm mb-3">
+  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm">
+</div> -->

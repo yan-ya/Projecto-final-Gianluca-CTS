@@ -1,0 +1,94 @@
+
+<div id="imprimible">
+	
+	<table id="tabla_principal">
+		<thead style="width: 100%; border-top:1px;">
+				
+	<div id="titulo">
+
+		<h1>
+			<div class="vertical-centrado" style="border-top:1px;"> Informe Trimestral Universidad Del Comahue</div> <img id="logo-comahue"
+				src="../../assets/img/comahue-logo.png">
+		</h1>
+
+	</div>
+	<div id="borderline"></div>
+</thead>
+
+	<div class="panel" id="contenido">
+
+		<body>
+			<div class="table-responsive">
+			<table id="editorial" class="table-striped border-info col-md-12">
+				<thead >
+					<tr class=" border-info col-md-12" style="border: 4px solid;">
+						<th class="border-info text-center" style="border: 4px solid;"> Sustancia </th>
+						<th class="border-info text-center" style="border: 4px solid;"> Cantidad </th>
+						<th class="border-info text-center" style="border: 4px solid;"> Compras </th>
+						<th class="border-info text-center" style="border: 4px solid;"> Total Comprado </th>
+						<th class="border-info text-center" style="border: 4px solid;"> cantidad total al dia
+							{{ciclo_inicio}}/{{anio}} </th>
+						<th class="border-info text-center" style="border: 4px solid;"> Cantidad usada </th>
+						<th class="border-info text-center" style="border: 4px solid;"> Existencia Final al dia
+							{{ciclo_fin}}/{{anio}} </th>
+						<th class="border-info text-center" style="border: 4px solid;"> Fecha/s de compra </th>
+						<th class="border-info text-center" style="border: 4px solid;"> Tipo de documento/s: <br>F/T o R
+							(2) - N° de documento </th>
+						<th class="border-info text-center" style="border: 4px solid;"> Numero de Proveedor Sedronar
+						</th>
+
+					</tr>
+				</thead>
+
+				<tbody id="editorial" class="table-striped">
+
+					<tr *ngFor="let ele of elemento;" id="editorial" class="text-center">
+						<td class="border text-nowrap">
+							{{ele.sustancia}} <br> ({{ele.medicion}})
+						</td>
+						<td class="border">
+							{{ele.cantidad}} ({{ele.medicion}})
+						</td>
+						<td class="border" style="width: auto; max-width:10vh; word-spacing: 100000px;">
+							{{ele.comprada_historial}} ({{ele.medicion}})
+						</td>
+						<td class="border" style="white-space: nowrap;">
+							Comprado total: {{ele.cantidad_comprada}} ({{ele.medicion}})
+						</td>
+						<td class="border">
+							{{ele.suma_existencial}} ({{ele.medicion}})
+						</td>
+						<td class="border" style="white-space: nowrap;">
+							Uso: {{ele.usado_al_final_del_ciclo}} ({{ele.medicion}})
+						</td>
+						<td class="border">
+							{{ele.existencia_al_final_ciclo}} ({{ele.medicion}})
+						</td>
+						<td class="border" style="width: auto; max-width:10vh; word-spacing: 100px;">
+							{{ele.fecha_de_compra}}
+						</td>
+						<td class="border" style="width: auto; max-width:20vh; word-spacing: 1000000px;">
+							{{ele.tipo_documento}}
+						</td>
+						<td class="border" style="width: auto; max-width:10vh; word-spacing: 100000px;">
+							{{ele.numero_de_proveedor_sedronar}}
+						</td>
+
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		</body>
+	</div>
+</table>
+</div>
+<div class="noprint">
+	<p>
+		<button routerLink="/editor" routerLinkActive="active"  id="editar"><img id="img_actualizar"
+			src="../../assets/img/volver.png"></button>
+	</p>
+	<p>
+		<button (click)="imprimir();" id="imprimir"><img id="img_actualizar"
+			src="../../assets/img/imprimir.png"></button>
+	</p>
+</div>

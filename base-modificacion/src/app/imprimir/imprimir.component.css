@@ -1,0 +1,105 @@
+body{
+    display: block;
+}
+#tabla_principal{
+    margin-left: auto;
+    margin-right: auto;
+}
+#imprimible{
+    border: 1px solid black;
+    margin:0.5%;
+    /* display: block; */
+}
+#imprimir{
+    position: fixed;
+    right: 1.2%;
+    bottom: 7%;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    padding: 0%;
+    border: 0;
+}
+#editar{
+    position: fixed;
+    left: 1.2%;
+    bottom: 7%;
+    height: 50px;
+    width: 50px;
+    border-radius: 100%;
+    padding: 0%;
+    border: 0;
+}
+#borderline{
+    display: none;
+    position: fixed;
+      overflow: auto;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border: 2px solid black;
+      z-index: 1; /* Sit on top */
+}
+#contenido{
+    margin-top:0.5%;
+    margin-left: 0.5%;
+    margin-right: 0.5%;
+    margin-bottom: 0.5%;
+    padding-left: 0.5%;
+    padding-right: 0.5%;
+    padding-top: 0.5%;
+    padding-bottom: 0.5%;
+}
+#titulo{
+    margin-top:0.5%;
+    margin-left: 0.5%;
+    padding-left: 0.5%;
+    padding-right: 1%;
+    padding-top: 0.5%;
+    box-sizing:border-box;
+    min-width:100%;
+    min-height:50px;
+    display:inline-block;
+    text-align: center;
+    position: relative;
+}
+h1{
+    margin-top: auto;
+    margin-bottom: auto;
+    display: inherit;
+    width: 100%;
+}
+#logo-comahue{
+    float: right;
+    height: 7%;
+    width: 7%;
+    
+}
+#img_actualizar{
+    background: lightblue;
+    border-radius: 100%;
+    padding: 0%;
+    margin: 0%;
+    height: 50px;
+    width: 50px;
+}
+.vertical-centrado {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
+  tbody{
+      padding: 1px;
+  }
+ @media print {
+     @page { margin: 0; }
+     .noprint{display:none;}
+     #borderline{display: block;}
+     #imprimible{border: none;}
+    }
+    
+
+ 

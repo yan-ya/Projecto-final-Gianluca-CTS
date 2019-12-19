@@ -1,0 +1,21 @@
+[debug] [2019-11-05T11:46:50.019Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T11:46:50.023Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\gianl\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2019-11-05T11:46:50.024Z] CLI Version:   7.6.2
+[debug] [2019-11-05T11:46:50.024Z] Platform:      win32
+[debug] [2019-11-05T11:46:50.024Z] Node Version:  v10.15.3
+[debug] [2019-11-05T11:46:50.027Z] Time:          Tue Nov 05 2019 08:46:50 GMT-0300 (GMT-03:00)
+[debug] [2019-11-05T11:46:50.027Z] ----------------------------------------------------------------------
+[debug] [2019-11-05T11:46:50.027Z] 
+[debug] [2019-11-05T11:46:50.068Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-11-05T11:46:50.070Z] > authorizing via signed-in user
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\Xampp\htdocs\www\Proyecto_final\base_de_datos\base-modificacion
+
