@@ -97,9 +97,10 @@ h1{
  @media print {
      @page { margin: 0; }
      .noprint{display:none;}
+     .imprimirsi{min-width: 100%;}
      #borderline{display: block;}
-     #imprimible{border: none;}
+     #imprimible{border: none; overflow: hidden;}
     }
     
 
- 
+   

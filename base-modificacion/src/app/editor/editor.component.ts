@@ -147,10 +147,17 @@ export class EditorComponent implements OnInit {
     });
     
     $('#ciclo').on('click', function () {
-      $('#modal-espere').fadeIn('fast');
+      $('#modalautenticantedelet').fadeIn('fast');
+    });
+    $('#cerrardelet').on('click', function () {
+      $('#modalautenticantedelet').fadeOut('fast');
+    });
+    $('#cerraryborrar').on('click', function () {
+      $('#modalautenticantedelet').fadeOut('slow');
+      $('#modal-espere').fadeIn('slow');
       setTimeout(() => {
-        $('#modal-espere').fadeOut('slow');
-      }, 1000);
+        $('#modal-espere').fadeOut('fast');
+      }, 1500);
     });
 
     $('.cerrarmodal').on('click', function () {
@@ -160,9 +167,8 @@ export class EditorComponent implements OnInit {
 
     });
     $('.close').on('click', function () {
-      var modal = document.getElementById("modalautenticante");
-      modal.style.display = "none";
-
+      $('#modalautenticante').fadeOut('slow');
+      $('#modalautenticantedelet').fadeOut('slow');
     });
     $(document).on('keydown', function(event) {
       if (event.key == "Escape") {

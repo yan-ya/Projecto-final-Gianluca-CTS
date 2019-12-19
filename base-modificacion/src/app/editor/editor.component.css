@@ -11,7 +11,7 @@ margin-right: 2px!important ;
 .modal {
     display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
-    z-index: 1; /* Sit on top */
+    z-index: 2; /* Sit on top */
     left: 0;
     top: 0;
     width: 100%; /* Full width */
@@ -24,7 +24,7 @@ margin-right: 2px!important ;
 .modal-content {
     background-color: #fefefe;
     margin: 15% auto; /* 15% from the top and centered */
-    padding: 20px;
+    padding: 15px;
     border: 1px solid #888;
     width: 60%; /* Could be more or less, depending on screen size */
   }
@@ -48,17 +48,14 @@ margin-right: 2px!important ;
     cursor: pointer;
     background-color: red;
   }
-  #cerrar{
-    width: 20%;
-    /* margin-right: 0;  
-    margin-left: auto;
-    display: block; */
-  }
+
+
   #cerraryactualizar{
-      width: 20%;
-    margin-right: 0;
-    margin-left: 60%;
+      float: right;
     /* display: block; */
+  }
+  #cerraryborrar{
+    float: right;
   }
   .everything{
     margin: 10px;
@@ -151,3 +148,38 @@ margin-right: 2px!important ;
     height: 45px;
     width: 45px;
   }
+  .cerrarmodal{
+    min-width: 14vh;
+      min-height: 10vh;
+      max-width: 14vh;
+    /* margin-right: 0;  
+    margin-left: auto;
+    display: block; */
+  }
+  
+
+@media only screen and (max-width: 700px) and (orientation: landscape) {
+  .modal-content {
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    padding: 5vh;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+  }
+  .modal-content .grande {
+    background-color: #fefefe;
+    margin: 10% auto; /* 15% from the top and centered */
+    margin-top: 2%;
+    margin-bottom: 2%;
+    padding: 5vh;
+    border: 1px solid #888;
+    width: 60%; /* Could be more or less, depending on screen size */
+  }
+  .cerrarmodal{
+    min-width: 25vh;
+      min-height: 20vh;
+    /* margin-right: 0;  
+    margin-left: auto;
+    display: block; */
+  }
+}

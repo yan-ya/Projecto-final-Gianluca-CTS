@@ -2,7 +2,7 @@
   <div class="modal-content">
     <span class="close text-center">&times;</span>
     <h1>
-      <p>Confirmar cambios</p>
+      <p>Confirmar Edicion</p>
     </h1>
     <p>
       <button class="btn-danger btn-lg cerrarmodal" id="cerrar">Cancelar</button>
@@ -11,6 +11,21 @@
     </p>
   </div>
 </div>
+
+<div id="modalautenticantedelet" class="modal">
+  <div class="modal-content grande">
+    <span class="close text-center">&times;</span>
+    <h1>
+      <p>Esta a punto de Cerrar un ciclo asegurese de que tiene impreso estos datos</p>
+    </h1>
+    <p>
+      <button class="btn-success btn-lg cerrarmodal" id="cerrardelet">Cancelar</button>
+      <button class="btn-danger btn-lg cerrarmodal" (click)="fin_ciclo()" id="cerraryborrar">Cerrar Ciclo</button>
+
+    </p>
+  </div>
+</div>
+
 
 <div id="modal-espere" class="modal">
   <div class="modal-content">
@@ -24,7 +39,7 @@
 </div>
 
 
-<div style="text-align:center;background: gray; font-family: arial;">
+<div style="text-align:center;background: gray; font-family: arial; border-radius: 10px;">
   <h1 style="color: white; font-weight: bold;">
     Bienvenida a la {{ title }}
   </h1>
@@ -115,7 +130,7 @@
       src="../../assets/img/mas.png"></button> 
     <div [hidden]="tra">
       <div class="divrelativo" >
-      <button (click)="fin_ciclo()" id="ciclo" class="boton_relativo5 btn-danger">Fin Ciclo</button>
+      <button  id="ciclo" class="boton_relativo5 btn-danger">Fin Ciclo</button>
       
       <button routerLink="/imprimir" routerLinkActive="active" class="boton_relativo2"><img id="img_actualizar"
         src="../../assets/img/imprimir.png"></button>
@@ -157,7 +172,7 @@
     </tr>
   </table>
 </div>
-  <button class="btn-success" (click)="alta()">Agregar nuevo elemento </button>
+  <button class="btn-success" (click)="alta()" style="float: right;">Agregar nuevo elemento </button>
 </div>
 <h2></h2>
 <ul>
